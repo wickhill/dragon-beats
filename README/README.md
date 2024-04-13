@@ -245,9 +245,9 @@ Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wick
 [issues-shield]: https://img.shields.io/github/issues/wickhill/dragon-beats.svg?style=for-the-badge
 [issues-url]: https://github.com/wickhill/dragon-beats/issues
 
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/wickhill/dragon-beats.svg?style=for-the-badge
+[license-url]: https://github.com/wickhill/dragon-beats/blob/main/LICENSE
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
@@ -282,6 +282,3 @@ Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wick
 
 [NPM.js]: https://img.shields.io/badge/npm-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white "NPM Badge"
 [NPM-url]: https://www.npmjs.com/
-
-[license-shield]: https://img.shields.io/github/license/wickhill/dragon-beats.svg?style=for-the-badge
-[license-url]: https://github.com/wickhill/dragon-beats/blob/main/LICENSE
