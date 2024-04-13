@@ -282,3 +282,6 @@ Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wick
 
 [NPM.js]: https://img.shields.io/badge/npm-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white "NPM Badge"
 [NPM-url]: https://www.npmjs.com/
+
+[license-shield]: https://img.shields.io/github/license/wickhill/dragon-beats.svg?style=for-the-badge
+[license-url]: https://github.com/wickhill/dragon-beats/blob/main/LICENSE
