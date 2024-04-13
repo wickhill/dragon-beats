@@ -69,7 +69,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#roadmap">Roadmap to Dragon Beats: ERD, Route Table, Trello, and More!</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -91,14 +91,14 @@
 Dragon Beats: Stream, organize, and share the ultimate study and coding playlists. Tune in. Code out. Study smarter.
 
 ### Project Team
-- [Karina](https://github.com/kbmelody8)
+- [Karina Nova](https://github.com/kbmelody8)
 - [David Lesesne](https://github.com/dlesesne23)
 - [Wick Hill](https://github.com/wickhill)
 
 ### Quick Links
-- [Project Page](https://github.com/wickhill/dragon-beats)
-- [Twitter](https://twitter.com/wickstarter)
-- [LinkedIn](https://www.linkedin.com/in/wickhill/)
+- [Dragon Beats Project Page](https://github.com/wickhill/dragon-beats)
+- [Wickstarter's Twitter](https://twitter.com/wickstarter)
+- [Wick's LinkedIn](https://www.linkedin.com/in/wickhill/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -132,7 +132,7 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [https://developer.spotify.com/documentation/web-api](https://developer.spotify.com/documentation/web-api)
 2. Clone the repo
    ```sh
    git clone https://github.com/github_username/repo_name.git
@@ -155,21 +155,22 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://developer.spotify.com/documentation/web-api)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- ROADMAP -->
-## Roadmap
+<!-- ROADMAP to Dragon Beats -->
+## Roadmap to Dragon Beats: ERD, Route Table, Trello, and More!
 
-- [ ] Feature 1
+- [x] Lucid Board
 - [ ] Feature 2
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [Lucid Board](https://lucid.app/lucidchart/628ed53c-eba0-448e-b1db-7fe2a378ffec/edit?invitationId=inv_84059993-f9b4-4242-9ba8-44dfba3f4f0b&page=0_0#) for our ERD and Routes Table.
+See the [Trello Board](https://trello.com/) for a comprehensive list of our proposed features.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -178,7 +179,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create! Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -205,9 +206,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Karina Nova - kbmelody8 [at] gmail
+David Lesesne - davidplesesne [at] gmail
+Wick - [@wickstarter](https://twitter.com/wickstarter) - wickhill [at] gmail
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wickhill/dragon-beats)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -216,9 +219,9 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* []() General Assembly Class #1204
+* []() Digital Dragons Code Crew
+* []() Caffeine
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
