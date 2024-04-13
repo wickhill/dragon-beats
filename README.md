@@ -172,13 +172,14 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 <!-- ROADMAP to Dragon Beats -->
 ## Roadmap to Dragon Beats: ERD, Route Table, Trello, and More!
 
-- [x] Lucid Board
-- [x] Trello Board
-- [ ] Feature 3
+- [x] Lucid Board - ERD and Routes Table
+- [x] Lucid Board - Wireframe and Proposed Features
+- [x] MVP and stretch goals
     - [ ] Nested Feature
 
-See the [Lucid Board](https://lucid.app/lucidchart/628ed53c-eba0-448e-b1db-7fe2a378ffec/edit?invitationId=inv_84059993-f9b4-4242-9ba8-44dfba3f4f0b&page=0_0#) for our ERD and Routes Table.
-See the [Trello Board](https://trello.com/) for a comprehensive list of our proposed features.
+* See the [Lucid Board](https://lucid.app/lucidchart/628ed53c-eba0-448e-b1db-7fe2a378ffec/edit?invitationId=inv_84059993-f9b4-4242-9ba8-44dfba3f4f0b&page=0_0#) for our ERD and Routes Table.
+
+* See the [Lucid Board](https://lucid.app/lucidspark/659fecc1-5684-4de2-b60c-24e020f7b54e/edit?existing=1&docId=659fecc1-5684-4de2-b60c-24e020f7b54e&shared=true&page=0_0&invitationId=inv_dcd3f292-1910-46a0-8fc1-c5d88f6999a7#) for a comprehensive list of our Wireframe and Proposed Features.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
