@@ -33,10 +33,10 @@
     <img src="dragon-beats-icon.png" alt="Icon" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Dragon Beats</h3>
 
   <p align="center">
-    project_description
+    Dragon Beats: Stream, organize, and share the ultimate study and coding playlists.
     <br />
     <a href="https://github.com/wickhill/dragon-beats"><strong>Explore the docs »</strong></a>
     <br />
@@ -90,14 +90,14 @@
 
 <br>
 
-<h2 align="center">Dragon Beats: Stream, organize, and share the ultimate study and coding playlists. "Tune in. Code out. Study smarter."</h2>
+<h1 align="center">"Tune in. Code out. Study smarter."</h1>
 
-### Project Team
+### Project Team:
 - [Karina Nova](https://github.com/kbmelody8)
 - [David Lesesne](https://github.com/dlesesne23)
 - [Wick Hill](https://github.com/wickhill)
 
-### Quick Links
+### Quick Links:
 - [Dragon Beats Project Page](https://github.com/wickhill/dragon-beats)
 - [Spotify for Developers Documentation](https://developer.spotify.com/documentation/web-api)
 - [Tailwind CSS](https://tailwindcss.com)
@@ -123,12 +123,12 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Here's how to get started with Dragon Beats!
+To get a local copy up and running follow these simple example steps:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Here's the software you'll need to install, the API's you'll need to request, and how to use 'em all so you can start listening!
 * npm
   ```sh
   npm install npm@latest -g
@@ -157,7 +157,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<span style="font-weight: bold">Find Your Focus with Dragon Beats:</span>
+
+Dragon Beats harmonizes your study and coding sessions with curated playlists that sharpen focus without distraction. It's where music transforms from mere background noise to a productivity-boosting soundscape.
+
+(Later, have code examples and demos in this space. And perhaps a few links to addtl resources.)
 
 _For more examples, please refer to the [Documentation](https://developer.spotify.com/documentation/web-api)_
 
@@ -169,7 +173,7 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 ## Roadmap to Dragon Beats: ERD, Route Table, Trello, and More!
 
 - [x] Lucid Board
-- [ ] Feature 2
+- [x] Trello Board
 - [ ] Feature 3
     - [ ] Nested Feature
 
