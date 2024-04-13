@@ -88,7 +88,9 @@
   </a>
 </div>
 
-Dragon Beats: Stream, organize, and share the ultimate study and coding playlists. Tune in. Code out. Study smarter.
+<br>
+
+<h2 align="center">Dragon Beats: Stream, organize, and share the ultimate study and coding playlists. "Tune in. Code out. Study smarter."</h2>
 
 ### Project Team
 - [Karina Nova](https://github.com/kbmelody8)
@@ -97,8 +99,9 @@ Dragon Beats: Stream, organize, and share the ultimate study and coding playlist
 
 ### Quick Links
 - [Dragon Beats Project Page](https://github.com/wickhill/dragon-beats)
-- [Wickstarter's Twitter](https://twitter.com/wickstarter)
-- [Wick's LinkedIn](https://www.linkedin.com/in/wickhill/)
+- [Spotify for Developers Documentation](https://developer.spotify.com/documentation/web-api)
+- [Tailwind CSS](https://tailwindcss.com)
+- [NPM](https://www.npmjs.com)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -109,6 +112,7 @@ Dragon Beats: Stream, organize, and share the ultimate study and coding playlist
 * [![React][React.js]][React-url]
 * [![Tailwind CSS][Tailwind.js]][Tailwind-url]
 * [![Spotify][Spotify.js]][Spotify-url]
+* [![NPM][NPM.js]][NPM-url]
 * [![jQuery][jQuery.js]][jQuery-url]
 
 
@@ -229,13 +233,18 @@ Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wick
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/wickhill/dragon-beats.svg?style=for-the-badge
+[contributors-url]: https://github.com/wickhill/dragon-beats/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/wickhill/dragon-beats.svg?style=for-the-badge
+[forks-url]: https://github.com/wickhill/dragon-beats/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/wickhill/dragon-beats.svg?style=for-the-badge
+[stars-url]: https://github.com/wickhill/dragon-beats/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/wickhill/dragon-beats.svg?style=for-the-badge
+[issues-url]: https://github.com/wickhill/dragon-beats/issues
+
 [issues-url]: https://github.com/github_username/repo_name/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
@@ -270,3 +279,6 @@ Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wick
 
 [jQuery.js]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white "jQuery Badge"
 [jQuery-url]: https://jquery.com/
+
+[NPM.js]: https://img.shields.io/badge/npm-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white "NPM Badge"
+[NPM-url]: https://www.npmjs.com/
