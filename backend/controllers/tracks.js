@@ -1,9 +1,9 @@
-/* Require modules
+/* Require modules:
 --------------------------------------------------------------- */
 const express = require("express");
 const router = express.Router();
 
-/* Require the db connection, and models
+/* Require the db connection, and models:
 --------------------------------------------------------------- */
 const db = require("../models");
 
