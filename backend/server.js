@@ -5,6 +5,8 @@ require('dotenv').config();
 const app = express();
 const db = require('./models');
 
+const userController = require('./controllers/userController');
+
 // set up middleware
 app.use(cors());
 // Middleware to parse JSON bodies
@@ -26,7 +28,9 @@ app.get("/seed", function (req, res) {
       })
   })
 
-
+// This tells our app to look at the `controllers/fruits.js` file 
+// to handle all routes that begin with `localhost:3000/fruits`
+app.use('/users', userController)
 
 
 
