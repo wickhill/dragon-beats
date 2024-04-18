@@ -55,7 +55,7 @@ router.get('/login', (req, res) => {
     // Redirect to Spotify's authorization page
     res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
       response_type: 'code',
-      client_id: "b192a94f46be45a3989b5712781ea18c",
+      client_id: process.env.CLIENT_ID,
       scope: scope,
       redirect_uri: redirect_uri,
     })}`);
