@@ -6,7 +6,11 @@ const userSchema = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     likedSongs: {type: [String], default: []},
-    playlists: {type: [String], default: []},
+    playlists: [{
+        name: String,
+        tracks: [{ type: String}]
+    }
+    ]
 },  {
     timestamps: true,
     toJSON: {
