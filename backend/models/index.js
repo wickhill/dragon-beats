@@ -11,6 +11,6 @@ db.on("connected", function() {
     console.log(`Connected to MongoDB ${db.name} at ${db.host}:${db.port}`)
 })
 
-// module.exports = {
-//     Playlist: require('./Playlist'),
-// }
+module.exports = {
+    User: require("./User"),
+}
