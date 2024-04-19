@@ -1,49 +1,29 @@
-/* Require modules:
---------------------------------------------------------------- */
-const express = require("express");
-const router = express.Router();
+require('dotenv').config();
+const router = require('express').Router();
+// Axios takes the response from external API and stores data it in 
+const axios = require("axios")
+const db = require('../models');
 
-/* Require the db connection, and models:
---------------------------------------------------------------- */
-const db = require("../models");
+function fetchTracks(req, res) {
+    const tracksId = req.params.id
+    const accessToken = req.cookies['access_token'];
+    const config = {
+        headers: {
+            // Include the access token in the Authorization header
+            'Authorization': `Bearer ${accessToken}`
+        },
+    }
+    return axios.get(`https://api.spotify.com/v1/tracks/${tracksId}`, config)
 
-// INDEX - Returns all tracks as JSON
-router.get("/", (req, res) => {
-    db.Track.find({})
-    .then((tracks) => res.json(tracks))
-    .catch((err) => res.json({ error: err.message }));
-});
-
-// CREATE - Adds a new tracks and returns the track as JSON
-router.post("/", (req, res) => {
-    db.Track.create(req.body)
-
-.then((track) => res.json(track))
-.catch((err) => res.json({ error: err.message }));
-});
-
-// SHOW - Returns a single track by ID as JSON
-router.get("/:id", (req, res) => {
-    db.Track.findById(req.params.id)
-    .then((track) => {
-        if(!track) res.status(404).json({ error: "Track not found" });
-        else res.json(track);
+    .then(fetchedTracks=> {
+        // console.log(`Seeded ${JSON.stringify(fetchedTracks.data)}`);
+        res.json(fetchedTracks.data)
     })
-    .catch((err) => res.json({ error: err.message }));
-});
+    .catch(error => {
+        console.log("Error in the seeding process", error)
+    })
+}
 
-// UPDATE - Updates a specific track and returns the updated track as JSON
-router.put("/:id", (req, res) => {
-    db.Track.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then((track) => res.json(track))
-    .catch((err) => res.json({ error: err.message }));
-});
-
-// DELETE - Deletes a specific track and returns a success message
-router.delete("/:id", (req, res) => {
-    db.Track.findByIdAndDelete(req.params.id)
-    .then(() => res.json({ message: "Track successfully deleted" }))
-    .catch((err) => res.json({ error: err.message }));
-});
+router.get("/:id", fetchTracks)
 
 module.exports = router;
