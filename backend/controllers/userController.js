@@ -129,6 +129,25 @@ function ensureLoggedIn(req, res, next ){
     res.status('401').json({ msg: 'Unauthorized You Shall Not Pass'})
 }
 
+// CRUD Routes
+// Delete user by id
+router.delete('/:id', async (req, res) => {
+    await User.findByIdAndDelete(req.params.id)
+    res.status(200).send({message: "Successfully deleted user"})
+})
+
+// Update user by id
+router.put('/:id', async (req, res) => {
+    const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        {$set: req.body},
+        {new: true}
+    ).select('-password -__v')
+    const token = createToken(updatedUser)
+    res.json({token, updatedUser})
+    res.status(200).send({data: updatedUser})
+})
+
 
 
 module.exports = router
