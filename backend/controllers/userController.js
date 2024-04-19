@@ -138,14 +138,13 @@ router.delete('/:id', async (req, res) => {
 
 // Update user by id
 router.put('/:id', async (req, res) => {
-    const updatedUser = await User.findByIdAndUpdate(
+    const updatedUser = await db.User.findByIdAndUpdate(
         req.params.id,
         {$set: req.body},
         {new: true}
     ).select('-password -__v')
     const token = createToken(updatedUser)
-    res.json({token, updatedUser})
-    res.status(200).send({data: updatedUser})
+    res.status(200).json({ token, user: updatedUser })
 })
 
 
