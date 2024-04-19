@@ -138,12 +138,15 @@ router.delete('/:id', async (req, res) => {
 
 // Update user by id
 router.put('/:id', async (req, res) => {
+  //since we have access to db
     const updatedUser = await db.User.findByIdAndUpdate(
         req.params.id,
         {$set: req.body},
         {new: true}
     ).select('-password -__v')
     const token = createToken(updatedUser)
+  // Here we can send the response once with both the token and the updated user info
+  //Tested in postman - it works, make sure to include Content-Type: application/json in "headers" when testing
     res.status(200).json({ token, user: updatedUser })
 })
 
