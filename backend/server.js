@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 //Loading environment variables from a .env file into process.env
 require("dotenv").config()
+
 const db = require('./models')
 const userCtrl = require("./controllers/userController")
 const genreCtrl = require("./controllers/genreController")
@@ -23,10 +25,19 @@ app.use(express.json())
 const morgan = require("morgan")
 app.use(morgan("tiny"))
 
+app.use(
+    session({
+      secret: process.env.SECRETKEY,//Secret used to sign the session ID cookie
+      resave: false,
+      saveUninitialized: false
+    })
+  )
+
 app.use("/user", userCtrl)
 app.use("/genre", genreCtrl)
 app.use("/playlists", playlistCtrl)
 app.use("/tracks", tracksCtrl)
+
 
 //I.N.D.U.C.E.S.
 // Index route
