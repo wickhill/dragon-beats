@@ -6,7 +6,7 @@ const Sidebar = () => {
     <div className="top_playlists">
         <div className="logo">
             <img>
-            {/* Need image */}
+            {/* Need logo image */}
             </img>
         </div>
         <ul>
