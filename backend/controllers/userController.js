@@ -10,6 +10,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 // For encoding and decoding query strings
 const qs = require('querystring');
+// Require the JWT config
+// const config = require('../../jwt.config.js')
 
 // Signup form ----> Create Route
 
