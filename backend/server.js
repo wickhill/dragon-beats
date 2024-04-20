@@ -9,6 +9,7 @@ const db = require('./models')
 const userCtrl = require("./controllers/userController")
 const genreCtrl = require("./controllers/genreController")
 const playlistCtrl = require("./controllers/playlistController")
+const tracksCtrl = require("./controllers/tracksController")
 
 // Middleware
 app.use(cors());             
@@ -25,6 +26,7 @@ app.use(morgan("tiny"))
 app.use("/user", userCtrl)
 app.use("/genre", genreCtrl)
 app.use("/playlists", playlistCtrl)
+app.use("/tracks", tracksCtrl)
 
 //I.N.D.U.C.E.S.
 // Index route
