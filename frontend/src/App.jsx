@@ -10,7 +10,7 @@ function App() {
         <div>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/auth" element={<AuthPage setUser={setUser} />} />
+                <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
             </Routes>
         </div>
     )
