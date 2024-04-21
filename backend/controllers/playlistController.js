@@ -27,7 +27,7 @@ router.get('/users/:userId', (req, res) => {
 
 
 // DELETE
-// DELETE a playlist 
+// UNFOLLOW a playlist 
 router.delete('/:playlistId/followers', (req, res) => {
     const playlistId = req.params.playlistId;
     const accessToken = req.cookies['access_token'];
@@ -43,7 +43,7 @@ router.delete('/:playlistId/followers', (req, res) => {
 
 
 // UPDATE
-// PUT to update a playlist 
+// UPDATE a playlist 
 router.put('/:playlistId', (req, res) => {
     const playlistId = req.params.playlistId;
     const accessToken = req.cookies['access_token'];

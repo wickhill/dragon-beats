@@ -12,15 +12,11 @@ const userSchema = new mongoose.Schema({
         tracks: [{ type: String}]
     }],
     spotifyUserId: String,  // Store Spotify User ID
-    spotifyAccessToken: String,  // Store Spotify Access Token
-    spotifyRefreshToken: String,  // Store Spotify Refresh Token
 }, {
     timestamps: true,
     toJSON: {
         transform: function(doc, ret){
             delete ret.password;  
-            delete ret.spotifyAccessToken;
-            delete ret.spotifyRefreshToken;
             return ret;
         }
     }
