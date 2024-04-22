@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from "react-router-dom"
-import AuthPage from "./pages/AuthPage"
+import AuthPage from "./components/Auth"
 
 function App() {
     const [user, setUser] = useState(null)
     return (
+        <>
+        <h1>Dragon Beats App!</h1>
         <div>
-            <Routes>
-                <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
-            </Routes>
+            <Navbar />
+            {
+            <Auth user={user} setUser={setUser} />
+            }
+            <Footer />
         </div>
+        </>
     )
 }
 

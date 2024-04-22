@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar = () => {
   return (
-    <Container>
+    <>
     <div className="top_playlists">
         <div className="logo">
             <img>
@@ -25,7 +25,7 @@ const Sidebar = () => {
         </ul>
     </div>
     <Playlists />
-    </Container>
+    </>
   )
 }
 

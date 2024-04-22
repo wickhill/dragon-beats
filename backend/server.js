@@ -13,7 +13,6 @@ const tracksCtrl = require("./controllers/tracksController")
 
 // Middleware
 app.use(cors());             
-app.use(express.json());     
 app.use(cookieParser());
 //Promise based HTTP client for making requests to external API
 const axios = require("axios") 
