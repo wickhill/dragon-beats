@@ -10,17 +10,17 @@ const userSchema = new mongoose.Schema({
     playlists: [{
         name: String,
         tracks: [{ type: String}]
-    }
-    ]
-},  {
+    }],
+    spotifyUserId: String,  // Store Spotify User ID
+}, {
     timestamps: true,
     toJSON: {
-     transform: function(doc, ret){
-         delete ret.password
-         return ret
-     }
+        transform: function(doc, ret){
+            delete ret.password;  
+            return ret;
+        }
     }
-})
+});
 
 userSchema.methods.generateAuthToken = async function(){
     const token = jwt.sign({_id: this._id, name: this.name}, process.env.JWT_SECRETKEY)

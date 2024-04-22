@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-
 //Loading environment variables from a .env file into process.env
 require("dotenv").config()
+
 const db = require('./models')
 const userCtrl = require("./controllers/userController")
 const genreCtrl = require("./controllers/genreController")
@@ -27,6 +27,7 @@ app.use("/user", userCtrl)
 app.use("/genre", genreCtrl)
 app.use("/playlists", playlistCtrl)
 app.use("/tracks", tracksCtrl)
+
 
 //I.N.D.U.C.E.S.
 // Index route
