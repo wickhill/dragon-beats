@@ -6,12 +6,7 @@ const userSchema = new mongoose.Schema({
     username: {type: String, required: true, unique: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    likedSongs: {type: [String], default: []},
-    playlists: [{
-        name: String,
-        tracks: [{ type: String}]
-    }],
-    spotifyUserId: String,  // Store Spotify User ID
+    spotifyUserId: String, 
 }, {
     timestamps: true,
     toJSON: {

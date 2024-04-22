@@ -13,23 +13,22 @@ const qs = require('querystring');
 // Require the JWT config
 const config = require("../jwt.config")
 
+
 // SIGNUP
 router.post('/signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
-
+    
     // Check if user already exists
     const existingUser = await db.User.findOne({ username });
     if (existingUser) {
-      throw new Error(`Username ${username} already exists. Please sign in`);
+      return res.status(409).json({ msg: `Username ${username} already exists. Please sign in.`});
     }
-   // Hash the password asynchronously
-   const hashedString = await bcrypt.hash(password, 10);
     // Create a new user with the hashed password
     const newUser = new db.User({
       username: username,
-      password: hashedString,
-      email: email
+      email: email,
+      password: password
     });
     // Save the new user
     await newUser.save();
@@ -37,11 +36,10 @@ router.post('/signup', async (req, res) => {
     const token = createToken(newUser);
     res.json({ token, newUser });
   } catch (error) {
+    console.log("Signup Error:", error.message)
     res.status(400).json({ msg: error.message });
   }
 });
-
-
 // The redirect URI after user grants permission on Spotify's authorization page
 const redirectUri = "http://localhost:3000/user/callback"
 // GET route to start Spotify login process
@@ -64,13 +62,15 @@ router.get('/spotify-auth', (req, res) => {
 
 router.post('/signin', async (req, res) => {
   try {
+    console.log("Attempting to sign in with:", req.body); 
     const { username, password } = req.body
-    const user = await db.User.findOne({ username })
-    if (!user) throw new Error(`No user found with username ${username}`)
-    const validPassword = await bcrypt.compare(password, user.password)
+    const foundUser = await db.User.findOne({ username })
+    if (!foundUser) throw new Error(`No user found with username ${username}`)
+    const validPassword = await bcrypt.compare(password, foundUser.password)
+    console.log(validPassword, 1111)
     if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with username ${username}`)
-    const token = createToken(user)
-    res.json({ token, user })
+    const token = createToken(foundUser)
+    res.json({ token, foundUser })
   } catch (error) {
     res.status(400).json({ msg: error.message })
   }
