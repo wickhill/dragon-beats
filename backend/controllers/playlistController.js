@@ -10,8 +10,24 @@ const getHeaders = (accessToken) => ({
     'Content-Type': 'application/json'
 });
 
+//I.N.D.U.C.E.S
+
 // INDEX
-// GET all playlists for a user
+// Get Current User's Playlists
+router.get('/', (req, res) => {
+    const accessToken = req.cookies['access_token'];
+    axios.get('https://api.spotify.com/v1/me/playlists', {
+        headers: getHeaders(accessToken)
+    })
+    .then(response => res.json(response.data))
+    .catch(error => {
+        console.error("Error fetching current user's playlists:", error);
+        res.status(400).json({ message: 'Failed to fetch current user playlists' });
+    });
+});
+
+// INDEX
+// GET User's playlists
 router.get('/users/:userId', (req, res) => {
     const userId = req.params.userId;
     const accessToken = req.cookies['access_token'];
@@ -25,9 +41,54 @@ router.get('/users/:userId', (req, res) => {
     });
 });
 
+// Get Playlist Cover Image
+router.get('/:playlistId/images', (req, res) => {
+    const playlistId = req.params.playlistId;
+    const accessToken = req.cookies['access_token'];
+    axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/images`, {
+        headers: getHeaders(accessToken)
+    })
+    .then(response => res.json(response.data))
+    .catch(error => {
+        console.error("Error fetching playlist cover image:", error);
+        res.status(400).json({ message: 'Failed to fetch playlist cover image' });
+    });
+});
+
+//INDEX
+// Get Playlist Items
+router.get('/:playlistId/tracks', (req, res) => {
+    const playlistId = req.params.playlistId;
+    const accessToken = req.cookies['access_token'];
+    axios.get(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+        headers: getHeaders(accessToken)
+    })
+    .then(response => res.json(response.data))
+    .catch(error => {
+        console.error("Error fetching playlist items:", error);
+        res.status(400).json({ message: 'Failed to fetch playlist items' });
+    });
+});
+
+//DELETE
+// Remove Playlist Items
+router.delete('/:playlistId/tracks', (req, res) => {
+    const playlistId = req.params.playlistId;
+    const accessToken = req.cookies['access_token'];
+    const data = { tracks: req.body.tracks };
+    axios.delete(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+        headers: getHeaders(accessToken),
+        data: data
+    })
+    .then(response => res.json(response.data))
+    .catch(error => {
+        console.error("Error removing items from playlist:", error);
+        res.status(400).json({ message: 'Failed to remove items from playlist' });
+    });
+});
 
 // DELETE
-// UNFOLLOW a playlist 
+// Unfollow a playlist 
 router.delete('/:playlistId/followers', (req, res) => {
     const playlistId = req.params.playlistId;
     const accessToken = req.cookies['access_token'];
@@ -43,7 +104,7 @@ router.delete('/:playlistId/followers', (req, res) => {
 
 
 // UPDATE
-// UPDATE a playlist 
+// Change Playlist Details
 router.put('/:playlistId', (req, res) => {
     const playlistId = req.params.playlistId;
     const accessToken = req.cookies['access_token'];
@@ -63,7 +124,7 @@ router.put('/:playlistId', (req, res) => {
 });
 
 // CREATE   
-// CREATE a new playlist 
+// Create a new playlist 
 router.post('/users/:userId', (req, res) => {
     const userId = req.params.userId;
     const accessToken = req.cookies['access_token'];
@@ -82,8 +143,24 @@ router.post('/users/:userId', (req, res) => {
     });
 });
 
+// Add Items to Playlist
+router.post('/:playlistId/tracks', (req, res) => {
+    const playlistId = req.params.playlistId;
+    const accessToken = req.cookies['access_token'];
+    const data = { uris: req.body.uris };
+    axios.post(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, data, {
+        headers: getHeaders(accessToken)
+    })
+    .then(response => res.json(response.data))
+    .catch(error => {
+        console.error("Error adding items to playlist:", error);
+        res.status(400).json({ message: 'Failed to add items to playlist' });
+    });
+});
+
+
 // SHOW
-// GET a single playlist
+// Get a single playlist
 router.get('/:playlistId', (req, res) => {
     const playlistId = req.params.playlistId;
     const accessToken = req.cookies['access_token'];

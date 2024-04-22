@@ -11,85 +11,76 @@ const jwt = require('jsonwebtoken');
 // For encoding and decoding query strings
 const qs = require('querystring');
 // Require the JWT config
-// const config = require('../../jwt.config.js')
+const config = require("../jwt.config")
 
-// Signup form ----> Create Route
-
-router.post('/', async (req, res) => {
-  try {
-    const newUser = new db.User(req.body)
-    await newUser.save()
-    // make a token
-    const token = createToken(newUser)
-    res.json({ token, newUser })
-  } catch (error) {
-    res.status(400).json({ msg: error.message })
-  }
-})
-
-//Signup
+// SIGNUP
 router.post('/signup', async (req, res) => {
   try {
-    const { username, password } = req.body
-    const user = await db.User.findOne({ username })
-    if (!user) throw new Error(`User not found: User with username ${username}`)
-    const validPassword = await bcrypt.compare(password, user.password)
-    if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with email ${username}`)
-    const token = createToken(user)
-    res.json({ token, user })
+    const { username, email, password } = req.body;
+
+    // Check if user already exists
+    const existingUser = await db.User.findOne({ username });
+    if (existingUser) {
+      throw new Error(`Username ${username} already exists. Please sign in`);
+    }
+   // Hash the password asynchronously
+   const hashedString = await bcrypt.hash(password, 10);
+    // Create a new user with the hashed password
+    const newUser = new db.User({
+      username: username,
+      password: hashedString,
+      email: email
+    });
+    // Save the new user
+    await newUser.save();
+    // Create a token for the new user
+    const token = createToken(newUser);
+    res.json({ token, newUser });
   } catch (error) {
-    res.status(400).json({ msg: error.message })
+    res.status(400).json({ msg: error.message });
   }
-})
+});
+
+
 // The redirect URI after user grants permission on Spotify's authorization page
 const redirectUri = "http://localhost:3000/user/callback"
 // GET route to start Spotify login process
-router.get('/signup', (req, res) => {
+router.get('/spotify-auth', (req, res) => {
   // Define the scope of access we are requesting from Spotify
-  // const scope = 'playlist-read-private';
   const scope = 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public'
   // Redirect to Spotify's authorization page
-  // https://www.spotify.com/ua-en/signup?forward_url=https%3A%2F%2Fopen.spotify.com%2F
-
   res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
     response_type: 'code',
     client_id: process.env.CLIENT_ID,
     scope: scope,
     redirect_uri: redirectUri,
-    show_dialog: true // Prompt the user to sign up if not logged in
   })}`);
 });
 
+// SIGNIN
+// Receive credentials from user
+// Verify credentials are accurate
+// If credentials are accurate, then return a token
 
-
-// Login form
-
-// receive credentials from user
-// verify credentials are accurate
-// if credentials are accurate then you return a token
-
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-router.post('/login', async (req, res) => {
+router.post('/signin', async (req, res) => {
   try {
     const { username, password } = req.body
     const user = await db.User.findOne({ username })
-    if (!user) throw new Error(`User not found: User with username ${username}`)
+    if (!user) throw new Error(`No user found with username ${username}`)
     const validPassword = await bcrypt.compare(password, user.password)
-    if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with email ${username}`)
+    if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with username ${username}`)
     const token = createToken(user)
     res.json({ token, user })
   } catch (error) {
     res.status(400).json({ msg: error.message })
   }
 })
-
 
 // The redirect URI after user grants permission on Spotify's authorization page
 const redirect_uri = "http://localhost:3000/user/callback"
 // GET route to start Spotify login process
 router.get('/login', (req, res) => {
   // Define the scope of access we are requesting from Spotify
-  // const scope = 'playlist-read-private';
   const scope = 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-private user-read-email'
   // Redirect to Spotify's authorization page
   res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
@@ -136,6 +127,7 @@ router.get('/callback', (req, res) => {
           if(data) {
             spotifyUser = data.id
           }
+          console.log(spotifyUser, 777)
         })
         .catch(error => {
           console.error('Error getting profile:', error);
@@ -154,7 +146,7 @@ router.get('/callback', (req, res) => {
             sameSite: 'lax', // CSRF protection
             maxAge: 3500000 //Set the cookie to expire at the same time as the access token
           });
-   // Redirect to the main app page
+   // Redirect to the app home page
    res.redirect(`http://localhost:3000`);
         })
     })
@@ -164,7 +156,7 @@ router.get('/callback', (req, res) => {
     });
 });
 
-// createToken form
+// Create token form
 function createToken(user) {
   return jwt.sign({ user }, process.env.SECRETKEY, { expiresIn: '24h' })
 }
@@ -191,24 +183,20 @@ function ensureLoggedIn(req, res, next) {
   res.status('401').json({ msg: 'Unauthorized You Shall Not Pass' })
 }
 
-// CRUD Routes
-// Delete user by id
+// DELETE user by id
 router.delete('/:id', async (req, res) => {
   await User.findByIdAndDelete(req.params.id)
   res.status(200).send({ message: "Successfully deleted user" })
 })
 
-// Update user by id
+// UPDATE user by id
 router.put('/:id', async (req, res) => {
-  //since we have access to db
   const updatedUser = await db.User.findByIdAndUpdate(
     req.params.id,
     { $set: req.body },
     { new: true }
   ).select('-password -__v')
   const token = createToken(updatedUser)
-  // Here we can send the response once with both the token and the updated user info
-  //Tested in postman - it works, make sure to include Content-Type: application/json in "headers" when testing
   res.status(200).json({ token, user: updatedUser })
 })
 

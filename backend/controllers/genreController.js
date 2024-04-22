@@ -4,7 +4,6 @@ const router = require('express').Router();
 const axios = require("axios")
 const db = require('../models');
 
-
 function fetchGenres(req, res) {
     const accessToken = req.cookies['access_token'];
     const config = {
@@ -19,7 +18,6 @@ function fetchGenres(req, res) {
     }
     return axios.get("https://api.spotify.com/v1/recommendations", config)
     .then(seededGenres=> {
-        // console.log(`Seeded ${JSON.stringify(seededGenres.data)}`);
         res.json(seededGenres.data)
     })
     .catch(error => {
@@ -43,7 +41,6 @@ function fetchGenrePlaylists(req, res) {
     }
     return axios.get("https://api.spotify.com/v1/search", config)
     .then(fetchedPlaylists=> {
-        // console.log(`Seeded ${JSON.stringify(fetchedPlaylists.data)}`);
         res.json(fetchedPlaylists.data)
     })
     .catch(error => {
