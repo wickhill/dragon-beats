@@ -79,7 +79,7 @@ router.post('/signin', async (req, res) => {
 // The redirect URI after user grants permission on Spotify's authorization page
 const redirect_uri = "http://localhost:3000/user/callback"
 // GET route to start Spotify login process
-router.get('/login', (req, res) => {
+router.get('/spotify-login', (req, res) => {
   // Define the scope of access we are requesting from Spotify
   const scope = 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-private user-read-email'
   // Redirect to Spotify's authorization page
