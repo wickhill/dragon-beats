@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from "react-router-dom"
-import AuthPage from "./components/Auth"
+import Auth from "./components/Auth"
+import Spotify from "./components/Spotify"
 
 function App() {
     const [user, setUser] = useState(null)
