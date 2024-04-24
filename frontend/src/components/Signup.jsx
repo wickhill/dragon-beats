@@ -1,29 +1,40 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { signup, loadingAction, getSpotifyPage} from '../store/action/userAction';
+
 
 const Signup = ({ onSignup }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch =useDispatch()
 
   const handleSignup = async (e) => {
-    e.preventDefault();
-    
+    e.preventDefault();;
+    dispatch(loadingAction())
+    const status = dispatch(signup({
+      username, password
+    }))
+    dispatch(getSpotifyPage())
+    dispatch(loadingAction())
+
     // Here you would typically perform sign-up logic
     // For demonstration, let's assume sign-up is successful
-    const response = await fetch('http://localhost:3000/user/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email,
-          password
-        })
-      });
-      const accessToken = ' ';
-      const res = await response.json()
-      console.log(res)
-      // Call the onSignIn function passed from the parent component
-      onSignup(accessToken);
+    // const response = await fetch('http://localhost:3000/user/signup', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+          
+    //     },
+    //     body: JSON.stringify({
+    //       email,
+    //       password
+    //     })
+    //   });
+    //   const accessToken = ' ';
+    //   const res = await response.json()
+    //   console.log(res)
+    //   // Call the onSignIn function passed from the parent component
+    //   onSignup(accessToken);
   };
 
   return (

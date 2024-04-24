@@ -13,12 +13,11 @@ const qs = require('querystring');
 // Require the JWT config
 const config = require("../jwt.config")
 
-
+let user = null
 // SIGNUP
 router.post('/signup', async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    
     // Check if user already exists
     const existingUser = await db.User.findOne({ username });
     if (existingUser) {
@@ -32,6 +31,7 @@ router.post('/signup', async (req, res) => {
     });
     // Save the new user
     await newUser.save();
+    user = newUser
     // Create a token for the new user
     const token = createToken(newUser);
     res.json({ token, newUser });
@@ -41,18 +41,28 @@ router.post('/signup', async (req, res) => {
   }
 });
 // The redirect URI after user grants permission on Spotify's authorization page
-const redirectUri = "http://localhost:3000/user/callback"
+const redirectUri = "http://localhost:5173/user/callback"
 // GET route to start Spotify login process
 router.get('/spotify-auth', (req, res) => {
   // Define the scope of access we are requesting from Spotify
   const scope = 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public'
   // Redirect to Spotify's authorization page
-  res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
+//   res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
+//     response_type: 'code',
+//     client_id: process.env.CLIENT_ID,
+//     scope: scope,
+//     redirect_uri: redirectUri,
+//   })}`);
+// });
+
+res.json({
+  url: `https://accounts.spotify.com/authorize?${qs.stringify({
     response_type: 'code',
     client_id: process.env.CLIENT_ID,
     scope: scope,
-    redirect_uri: redirectUri,
-  })}`);
+    redirect_uri: redirect_uri,
+  })}`
+});
 });
 
 // SIGNIN
@@ -67,9 +77,26 @@ router.post('/signin', async (req, res) => {
     const foundUser = await db.User.findOne({ username })
     if (!foundUser) throw new Error(`No user found with username ${username}`)
     const validPassword = await bcrypt.compare(password, foundUser.password)
-    console.log(validPassword, 1111)
     if (!validPassword) throw new Error(`The password credentials shared did not match the credentials for the user with username ${username}`)
     const token = createToken(foundUser)
+    const scope = 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public'
+  // Redirect to Spotify's authorization page
+  // res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
+  //   response_type: 'code',
+  //   client_id: process.env.CLIENT_ID,
+  //   scope: scope,
+  //   redirect_uri: redirectUri,
+  // })}`);
+
+  // res.json({
+  //   url: `https://accounts.spotify.com/authorize?${qs.stringify({
+  //     response_type: 'code',
+  //     client_id: process.env.CLIENT_ID,
+  //     scope: scope,
+  //     redirect_uri: redirect_uri,
+  //   })}`
+  // });
+  user = foundUser
     res.json({ token, foundUser })
   } catch (error) {
     res.status(400).json({ msg: error.message })
@@ -77,18 +104,27 @@ router.post('/signin', async (req, res) => {
 })
 
 // The redirect URI after user grants permission on Spotify's authorization page
-const redirect_uri = "http://localhost:3000/user/callback"
+const redirect_uri = "http://localhost:5173/user/callback"
 // GET route to start Spotify login process
 router.get('/spotify-login', (req, res) => {
+  console.log(1)
   // Define the scope of access we are requesting from Spotify
   const scope = 'playlist-read-private playlist-read-collaborative playlist-modify-private playlist-modify-public user-read-private user-read-email'
   // Redirect to Spotify's authorization page
-  res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
-    response_type: 'code',
-    client_id: process.env.CLIENT_ID,
-    scope: scope,
-    redirect_uri: redirect_uri,
-  })}`);
+  // res.redirect(`https://accounts.spotify.com/authorize?${qs.stringify({
+  //   response_type: 'code',
+  //   client_id: process.env.CLIENT_ID,
+  //   scope: scope,
+  //   redirect_uri: redirect_uri,
+  // })}`);
+  res.json({
+    url: `https://accounts.spotify.com/authorize?${qs.stringify({
+      response_type: 'code',
+      client_id: process.env.CLIENT_ID,
+      scope: scope,
+      redirect_uri: redirect_uri,
+    })}`
+  });
 });
 
 // GET route to handle the callback after user has authorized with Spotify
@@ -112,6 +148,7 @@ router.get('/callback', (req, res) => {
     .then(response => {
       // Extract the access token and refresh token from the response
       const { access_token, refresh_token } = response.data;
+      console.log(access_token, user, 8888)
       let spotifyUser = null;
       fetch("https://api.spotify.com/v1/me", {
         headers: {
@@ -127,7 +164,6 @@ router.get('/callback', (req, res) => {
           if(data) {
             spotifyUser = data.id
           }
-          console.log(spotifyUser, 777)
         })
         .catch(error => {
           console.error('Error getting profile:', error);
@@ -135,19 +171,24 @@ router.get('/callback', (req, res) => {
         .finally(() => {
           const spotifyUserId = spotifyUser ? spotifyUser: process.env.SPOTIFY_USER_ID
           res.cookie('access_token', access_token, {
-            httpOnly: true, // 
+            httpOnly: false, // 
             // secure: process.env.NODE_ENV !== 'development',     // Set to true later when in production
             sameSite: 'lax', // CSRF protection
             maxAge: 3500000 //Set the cookie to expire at the same time as the access token
           });
           res.cookie("spotifyUserId", spotifyUserId, {
-            httpOnly: true, // 
+            httpOnly: false, // 
             // secure: process.env.NODE_ENV !== 'development',     // Set to true later when in production
             sameSite: 'lax', // CSRF protection
             maxAge: 3500000 //Set the cookie to expire at the same time as the access token
           });
+          res.cookie("client", JSON.stringify(user), {
+            httpOnly: false, 
+            sameSite: 'lax',
+            maxAge: 3500000 
+          })
    // Redirect to the app home page
-   res.redirect(`http://localhost:3000`);
+   res.redirect(`http://localhost:5173`);
         })
     })
     .catch(error => {
