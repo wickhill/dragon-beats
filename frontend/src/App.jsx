@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from "react-router-dom"
-import AuthPage from "./components/Auth"
+import Auth from "./components/Auth"
 import { SearchBar } from './components/SearchBar'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -11,6 +11,8 @@ const getHeaders = (accessToken) => ({
     'Authorization': `Bearer ${accessToken}`,
     'Content-Type': 'application/json'
 });
+import Spotify from "./components/Spotify"
+import Signin from "./components/Signin"
 
 function App() {
     const [user, setUser] = useState(null)
@@ -62,6 +64,7 @@ function App() {
         <>
         <h1>Dragon Beats App!</h1>
         <div>
+            <Signin />
             <Navbar />
             <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
             <Tracks tracks={tracks} />

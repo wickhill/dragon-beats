@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const AuthPage = (props) => {
+const Auth = (props) => {
   const [showLogin, setShowLogin] = useState(true)
   const [formData, setFormData] = useState({
     username: '',
@@ -9,7 +9,7 @@ const AuthPage = (props) => {
   })
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:3000/user/login',
+      const response = await fetch('http://localhost:3000/user/signin',
     {
       method: 'POST',
       headers: {
@@ -80,5 +80,5 @@ const AuthPage = (props) => {
   )
 }
 
-export default AuthPage
+export default Auth
 
