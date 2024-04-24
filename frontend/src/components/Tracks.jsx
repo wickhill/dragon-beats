@@ -8,10 +8,10 @@ const Tracks = (props) => {
     <div style={{backgroundColor: 'green'}}>
       <h1>Tracks</h1>
       {props.tracks.map(track => {
-        return <Track track={track} />
+        return <Track key={track.id} track={track} />;
       })}
     </div>
   )
 }
 
-export default ShowTrack
+export default Tracks;
