@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from "react-router-dom"
 import Auth from "./components/Auth"
 import { SearchBar } from './components/SearchBar'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { Tracks } from './components/Tracks'
+import Footer from './components/Footer'
+import Tracks from './components/Tracks'
+import Navbar from './components/Navbar'
 
 // Helper function to configure Spotify API headers
 const getHeaders = (accessToken) => ({

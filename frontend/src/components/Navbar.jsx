@@ -1,36 +1,20 @@
-import React from 'react'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import {useHistory, Link } from 'react-router-dom'
-import { FaSearch } from 'react-icons/fa'
-import { CgProfile } from 'react-icons/cg'
-
-
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
-    const [menu, setMenu] = useState(false)
-    const { user } = useSelector((state) => state.user)
-    const dispatch = useDispatch()
-    const history = useHistory()
+    const navigate = useNavigate();
 
-    const handleLogout = () => {
-        dispatch(logout())
-    }
+    const handleLogoClick = () => {
+        navigate('/');  // Navigates to the home page when the logo is clicked
+    };
 
-  return (
-    <>
-    <div className="search_bar">
-        <FaSearch />
-        <input type="text" placeholder="Search Spotify" />
-    </div>
-    <div className="avatar">
-        <a href="#">
-           <CgProfile />
-           <span>{userInfo?.name}</span> 
-        </a>
-    </div>
-    </>
-  )
-}
+    return (
+        <nav>
+            <div onClick={handleLogoClick}>Logo</div>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+        </nav>
+    );
+};
 
-export default Navbar
+export default Navbar;
