@@ -58,6 +58,8 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#project-team">Project Team</a></li>
+        <li><a href="#quick-links">Quick Links</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -70,6 +72,12 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap to Dragon Beats: ERD, Route Table, Trello, and More!</a></li>
+        <ul>
+        <li><a href="#project-origins">Project Origins</a></li>
+        <li><a href="#a-word-on-authentication">A Word on Authentication</a></li>
+        <li><a href="#spotify-api">Spotify's API</a></li>
+        <li><a href="#hurdles">Hurdles</a></li>
+        </ul>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -170,7 +178,7 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 
 
 <!-- ROADMAP to Dragon Beats -->
-## Roadmap to Dragon Beats: ERD, Route Table, Trello, and More!
+## Roadmap
 
 - [x] Lucid Board - ERD and Routes Table
 - [x] Lucid Board - Wireframe and Proposed Features
@@ -182,6 +190,68 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 - See the [Lucid Board](https://lucid.app/lucidspark/659fecc1-5684-4de2-b60c-24e020f7b54e/edit?existing=1&docId=659fecc1-5684-4de2-b60c-24e020f7b54e&shared=true&page=0_0&invitationId=inv_dcd3f292-1910-46a0-8fc1-c5d88f6999a7#) for a comprehensive list of our Wireframe and Proposed Features.
 
 - See the [Trello Board](https://trello.com/b/wglvCwe2/dragonbeats) for MVP and stretch goals.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- PROJECT ORIGINS -->
+
+## Project Origins
+
+* []() Origins: Tuning into Focus:
+
+DragonBeats originated from our motivation to create a useful application for students who wanted music to enhance extended study sessions. Being students ourselves, we recognized the need to efficiently assemble music playlists from genres that would enhance concentration during study hours. DragonBeats, our music web app built using the Spotify Web API, integrates our knowledge of third-party APIs, authorization flows, and user accessibility. It features genres like Classical, Jazz, and Nature Sounds, with curated playlists designed to support focused study environments.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- A WORD ON AUTHENTICATION -->
+
+## A Word on Authentication
+
+* []() Basic Authentication:
+
+Basic Authentication -  Basic authentication combines a username and password into a single string. It is encoded and transmitted as part of the HTTP headers, however the simplicity of its implementation means that it isn't as secure as other options, and user credentials are more vulnerable.
+
+* []() OAuth 2.0:
+
+OAuth 2.0 - Resources such as oauth.net, rolustech.com, pingidentity.com, and others, support the case that OAuth 2.0 is currently the standard for online authorization. The site auth0.com provides a simple explanation about the the importance of OAuth 2.0 and the robust protection it offers:
+
+"OAuth 2.0 provides consented access and restricts actions of what the client app can perform on resources on behalf of the user, without ever sharing the user's credentials."
+
+In simple terms, OAuth 2.0 makes it so that sensitive information (usernames, passwords) don't have to be shared directly with applications. Instead, 'access tokens' are provided and used. The advantage of this is that, "...applications can use to access your information for a limited time and with limited permissions."
+
+While certainly more secure, OAuth 2.0 has its own drawbacks: requiring multiple endpoints to manage access tokens, as well as additional steps to obtain the access tokens, OAuth 2.0 is a more involved process than Basic Authentication.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- SPOTIFY API -->
+
+## Spotify API
+
+* []() Spotify for Developers:
+
+Spotify's API uses OAuth 2.0 for authentication. Developers implement the API by obtaining an access token, and then use the token to make authorized requests to various endpoints for data retrieval, data modification (saved tracks, playlists), or even playback.
+
+Spotify's API implements an additional security measure to protect user data and limit unauthorized access: access tokens are valid for only one hour. This is common industry practice, reducing the potential for the misuse of tokens.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- HURDLES -->
+
+## Hurdles
+
+* []() From Authorization Code Flow to Client Credentials Flow:
+
+Spotify's API offers comprehensive documentation that supports a variety of integrations, from accessing saved songs to managing playlists. Implementing its full capabilities, such as user-specific data access, typically requires authentication steps including user login via the robust "Authorization Code Flow". This flow, while offering extensive access to user resources and requiring token refresh mechanisms, was initially considered for our project. However, given its complexity and our project's timeframe, we opted for the more accessible "Client Credentials Flow". This approach, which only requires a secret key and is executed server-side, provides access to a more limited set of features but is significantly easier to implement, fitting our need for simplicity and quick integration.
+
+The design of our app is flexible enough that, with our growing understanding, we feel confident in our ability to implement the full "Authorization Code Flow" and its extensive features in future iterations.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
