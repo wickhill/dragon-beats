@@ -6,7 +6,7 @@ const Sidebar = () => {
     const user = useSelector(state=> state.session.user)
     console.log(user)
   return (
-    <Container>
+    <>
     <div className="top_playlists">
         <div className="logo">
             <img
@@ -33,7 +33,7 @@ const Sidebar = () => {
         </ul>
     </div>
     {/* <Playlists /> */}
-    </>
+    </> 
   )
 }
 
