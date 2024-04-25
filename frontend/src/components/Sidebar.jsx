@@ -1,6 +1,8 @@
 import React from 'react'
-
+import { useSelector } from 'react-redux'
 const Sidebar = () => {
+    const user = useSelector(state=> state.session.user)
+    console.log(user)
   return (
     <>
     <div className="top_playlists">
@@ -24,7 +26,7 @@ const Sidebar = () => {
             </li>
         </ul>
     </div>
-    <Playlists />
+    {/* <Playlists /> */}
     </>
   )
 }
