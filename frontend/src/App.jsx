@@ -1,32 +1,34 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes } from "react-router-dom"
-import Auth from "./components/Auth"
-import Spotify from "./components/Spotify"
+import { Link, Route, Routes } from "react-router-dom"
 import Signin from "./components/Signin"
 import Signup from './components/Signup'
+import Home from './pages/Home'
 import Genre from './components/Genre'
-import Playlists from './components/Playlists'
-import Sidebar from './components/Sidebar'
-
+import Navbar from './components/Navbar'
 
 function App() {
-    useEffect(() => {
-        const hash = window.location.hash
-        console.log(hash)
-    })
+const [user, setUser] = useState(null)
+const logout = () => {
 
+}
     return (
         <>
-        <h1>Dragon Beats App!</h1>
-        <div>
-            <Signin />
-            <Signup />
-            {/* <Sidebar />  */}
-            {/* <Genre />
-            <Playlists /> */}
-        </div>
+    <Navbar user={user}/>
+        <Routes>
+         {!user &&
+            <Route path="/" element={<Home />} />
+         }
+        <Route path="/signin" element={<Signin onSignin={ setUser }/>} />
+        <Route path="/signup" element={<Signup onSignup={ setUser }/>} />
+        {user &&  <> 
+       <Route path="/" element={<Genre />} />
+        </>}
+        </Routes>
         </>
     )
 }
+
+
+
 
 export default App
