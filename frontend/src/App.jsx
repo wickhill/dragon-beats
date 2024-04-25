@@ -1,82 +1,34 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes } from "react-router-dom"
-import Auth from "./components/Auth"
-import { SearchBar } from './components/SearchBar'
-import Footer from './components/Footer'
-import Tracks from './components/Tracks'
+import { Link, Route, Routes } from "react-router-dom"
+import Signin from "./components/Signin"
+import Signup from './components/Signup'
+import Home from './pages/Home'
+import Genre from './components/Genre'
 import Navbar from './components/Navbar'
 
-// Helper function to configure Spotify API headers
-const getHeaders = (accessToken) => ({
-    'Authorization': `Bearer ${accessToken}`,
-    'Content-Type': 'application/json'
-});
-import Spotify from "./components/Spotify"
-import Signin from "./components/Signin"
-import Signup from "./components/Signup"
-import Sidebar from "./components/Sidebar"
-
 function App() {
-    const [user, setUser] = useState(null)
-    const [tracks, setTracks] = useState([])
-    const [searchTerm, setSearchTerm] = useState('')
-    const [token, setToken] = useState('');
+const [user, setUser] = useState(null)
+const logout = () => {
 
-    const handleChange = (event) => {
-        const searchTerm = event.target.value
-        console.log(searchTerm)
-        setSearchTerm(searchTerm)
-        // setTracks(tracks.filter(track => track.Id.toLowerCase().includes(searchTerm.toLowerCase())))
-      }
-
-      const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log('form submitted')
-        fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
-            headers: {
-                'Authorization': `Bearer ${token}`}
-        })
-        .then(res=> res.json())
-        .then(data => {
-          console.log(data)
-          if(data.tracks){
-            setTracks(data.tracks.items)
-          }
-        })
-      }
-
-      useEffect(() => {
-        if (searchTerm && token) {
-            fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
-                headers: { 'Authorization': `Bearer ${token}` }
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.tracks) {
-                    setTracks(data.tracks.items);
-                }
-            })
-            .catch(error => console.error('Unable to fetch data: Tracks Search', error));
-        }
-    }, [searchTerm, token]);
-    
-
+}
     return (
         <>
-        <h1>Dragon Beats App!</h1>
-        <div>
-            <Signin />
-            <Navbar />
-            <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
-            <Tracks tracks={tracks} />
-            {
-            <Auth user={user} setUser={setUser} />
-            }
-            <Footer />
-        </div>
+    <Navbar user={user}/>
+        <Routes>
+         {!user &&
+            <Route path="/" element={<Home />} />
+         }
+        <Route path="/signin" element={<Signin onSignin={ setUser }/>} />
+        <Route path="/signup" element={<Signup onSignup={ setUser }/>} />
+        {user &&  <> 
+       <Route path="/" element={<Genre />} />
+        </>}
+        </Routes>
         </>
     )
 }
+
+
+
 
 export default App

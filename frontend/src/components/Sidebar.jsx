@@ -1,8 +1,10 @@
 import React from 'react'
 import { IoLibrary } from 'react-icons/io5'
 import { MdHomeFilled, MdSearch } from 'react-icons/md'
-
+import { useSelector } from 'react-redux'
 const Sidebar = () => {
+    const user = useSelector(state=> state.session.user)
+    console.log(user)
   return (
     <Container>
     <div className="top_playlists">
@@ -30,8 +32,8 @@ const Sidebar = () => {
             </li>
         </ul>
     </div>
-    <Playlists />
-    </Container>
+    {/* <Playlists /> */}
+    </>
   )
 }
 
