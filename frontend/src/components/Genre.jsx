@@ -35,7 +35,7 @@ const Genre = () => {
           .then(genreSeedResponse => {
             console.log(genreSeedResponse.data);
             // Filtering by genres
-            const genreNames = ['ambient', 'classical', 'jazz', 'study']; //dicuss with the team to possibly add more genres relevant to study
+            const genreNames = ['ambient', 'chill', 'classical','jazz']; 
             const filteredGenres = genreSeedResponse.data.genres.filter(genre =>
               genreNames.includes(genre)
             );
