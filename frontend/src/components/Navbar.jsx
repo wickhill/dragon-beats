@@ -3,18 +3,16 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CgProfile } from 'react-icons/cg'
 import logo from '../assets/logo.jpg'
+import Logout from './Logout'
 
 //Reference: https://flowbite.com/docs/components/navbar/
-const Navbar = ({ user }) => {
+const Navbar = ({ user, onLogout}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleToggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleLogout = () => {
-    // David logout logic here
-  };
   return (
     <nav className="fixed top-0 left-0 right-0 bg-gray-400 shadow z-50">
       <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
@@ -39,9 +37,10 @@ const Navbar = ({ user }) => {
                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
                     <Link to="/updateProfile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
-                    <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    {/* <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       Logout
-                    </button>
+                    </button> */}
+                    <Logout onLogout={onLogout}  />
                   </div>
                 </div>
               )}
