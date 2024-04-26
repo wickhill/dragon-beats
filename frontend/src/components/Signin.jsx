@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import img3 from '../assets/player.jpeg'
+import img3 from '../assets/vinyl.jpeg'
 import { FaSpotify } from "react-icons/fa"
 import { FaGithub } from "react-icons/fa"
 
