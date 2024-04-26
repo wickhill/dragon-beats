@@ -6,8 +6,6 @@ import Playlists from './Playlists'
 import img2 from '../assets/logo.jpg'
 
 const Sidebar = () => {
-    const user = useSelector(state=> state.session.user)
-    console.log(user)
   return (
     <>
     <div className="top_playlists">
@@ -36,9 +34,5 @@ const Sidebar = () => {
     </> 
   )
 }
-
-const Container = styled.div`
-    background-color: black;
-`;
 
 export default Sidebar
