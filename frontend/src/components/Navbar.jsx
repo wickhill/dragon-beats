@@ -25,6 +25,7 @@ const Navbar = ({ user }) => {
         </>}
         {user && <>
           <Link to="/">Genre</Link>
+          <Link to="/updateProfile">Update User Profile</Link>
           <button onClick={handleLogout}>logout</button>
         </>}
         {/* <div className="search_bar">
