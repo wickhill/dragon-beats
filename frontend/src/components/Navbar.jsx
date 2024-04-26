@@ -14,7 +14,7 @@ const Navbar = ({ user }) => {
 
   return (
 
-    <div className="fixed h-[80px] top-0 right-0 left-0 bg-blue-700">
+    <div className="h-[80px] top-0 right-0 left-0 bg-blue-700 relative">
       <div className="max-w-[1400px] my-0 mx-auto">
         <div className="">
         <h1>Dragon Beats App!</h1>

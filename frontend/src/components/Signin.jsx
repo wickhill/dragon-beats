@@ -30,7 +30,7 @@ const Signin = ({ onSignin }) => {
   navigate("/")
     };
     return (
-      <div className="pt-[75px] relative w-full h-screen bg-zinc-700/90">
+      <div className="pt-[0px] relative w-full h-screen bg-zinc-700/90">
             <img className="absolute w-full h-full object-cover mix-blend-overlay" src={img3} alt='' />
         <div className="flex justify-center items-center h-full">
         <form className= "max-w-[400px] w-full mx-auto bg-white p-8" onSubmit={handleSignin}>
