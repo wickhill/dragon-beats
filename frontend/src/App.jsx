@@ -14,7 +14,7 @@ const logout = () => {
 }
     return (
         <>
-    <Navbar user={user}/>
+    <Navbar user={user} onLogout={setUser}/>
         <Routes>
          {!user &&
             <Route path="/" element={<Home />} />

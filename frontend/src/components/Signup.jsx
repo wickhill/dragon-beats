@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import img1 from '../assets/bkgr.webp'
+import img1 from '../assets/vinyl.jpeg'
 import { FaSpotify } from "react-icons/fa"
 import { FaGithub } from "react-icons/fa"
 
