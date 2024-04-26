@@ -24,7 +24,7 @@ const logout = () => {
         {user && (
             <>
             <Route path="/" element={<Genre />} />
-            <Route path="/updateProfile" element={<UpdateUserProfile user={user} />} />
+            <Route path="/updateProfile" element={<UpdateUserProfile user={user} setUser={setUser} />} />
             </>
          )}
         </Routes>

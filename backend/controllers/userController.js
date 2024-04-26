@@ -116,14 +116,27 @@ router.delete('/:id', async (req, res) => {
 
 // UPDATE user by id
 router.put('/:id', async (req, res) => {
+  // Destructure and remove password from request body if empty
+  let { password, ...updateData } = req.body;
+  if (password === '') {
+    password = undefined; // Ignore password update if field is left empty
+  } else {
+    // Only hash password if it's updated
+    const salt = await bcrypt.genSalt(10);
+    password = await bcrypt.hash(password, salt);
+    updateData.password = password;
+  }
+  
   const updatedUser = await db.User.findByIdAndUpdate(
     req.params.id,
-    { $set: req.body },
+    { $set: updateData },
     { new: true }
-  ).select('-password -__v')
-  const token = createToken(updatedUser)
-  res.status(200).json({ token, user: updatedUser })
-})
+  ).select('-password -__v');
+
+  const token = createToken(updatedUser);
+  res.status(200).json({ token, user: updatedUser });
+});
+
 
 
 module.exports = router
