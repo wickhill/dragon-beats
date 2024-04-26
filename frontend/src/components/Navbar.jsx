@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaSearch } from 'react-icons/fa'
 import { CgProfile } from 'react-icons/cg'
 import logo from '../assets/logo.jpg'
 
