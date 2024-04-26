@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaSearch } from 'react-icons/fa'
 import { CgProfile } from 'react-icons/cg'
+import img4 from '../assets/icon.png'
 
 
 const Navbar = ({ user }) => {
@@ -14,19 +14,32 @@ const Navbar = ({ user }) => {
 
   return (
 
-    <div className="fixed h-[80px] top-0 right-0 left-0 bg-blue-700">
+    <div className="h-[80px] flex justify-between lg:py-5 px-20 py-4 bg-gray-300 relative">
+        <div className="flex items-center flex-1">
+           <img src={img4} alt="" /> 
+        </div>
       <div className="max-w-[1400px] my-0 mx-auto">
         <div className="">
         <h1>Dragon Beats App!</h1>
-        {!user && <>
-          <Link to="/">Home</Link>
-          <Link to="/signin">Singin</Link>
-          <Link to="/signup">Singup</Link>
-        </>}
+        {!user && <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
+        <div className="flex-10">
+            <ul className="flex gap-8 mr-16 text-[18px]">
+          <Link to="/">
+            <li>Home</li>
+            </Link>
+          <Link to="/signin">
+            <li>Singin</li>
+            </Link>
+          <Link to="/signup">
+            <li>Singup</li>
+            </Link>
+            </ul>
+        </div>
+        </div>}
         {user && <>
           <Link to="/">Genre</Link>
           <Link to="/updateProfile">Update User Profile</Link>
-          <button onClick={handleLogout}>logout</button>
+          <button onClick={handleLogout}>Logout</button>
         </>}
         {/* <div className="search_bar">
           <FaSearch />
