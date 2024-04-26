@@ -147,7 +147,7 @@ Here's the software you'll need to install, the API's you'll need to request, an
 1. Get a free API Key at [https://developer.spotify.com/documentation/web-api](https://developer.spotify.com/documentation/web-api)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/wickhill/dragon-beats.git
    ```
 3. Install NPM packages
    ```sh
@@ -201,7 +201,7 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 
 * []() Origins: Tuning into Focus:
 
-DragonBeats originated from our motivation to create a useful application for students who wanted music to enhance extended study sessions. Being students ourselves, we recognized the need to efficiently assemble music playlists from genres that would enhance concentration during study hours. DragonBeats, our music web app built using the Spotify Web API, integrates our knowledge of third-party APIs, authorization flows, and user accessibility. It features genres like Classical, Jazz, and Nature Sounds, with curated playlists designed to support focused study environments.
+DragonBeats originated from our motivation to create a useful application for students who wanted music to enhance extended study sessions. Being students ourselves, we recognize the need to efficiently assemble music playlists from genres that would enhance concentration during study hours. DragonBeats, our music web app built using the Spotify Web API, integrates our knowledge of third-party APIs, authorization flows, and user accessibility. It features genres like Classical, Jazz, and Nature Sounds, with curated playlists designed to support focused study environments.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

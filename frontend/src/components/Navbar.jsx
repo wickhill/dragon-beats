@@ -38,6 +38,7 @@ const Navbar = ({ user }) => {
         </div>}
         {user && <>
           <Link to="/">Genre</Link>
+          <Link to="/updateProfile">Update User Profile</Link>
           <button onClick={handleLogout}>Logout</button>
         </>}
         {/* <div className="search_bar">

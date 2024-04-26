@@ -87,11 +87,32 @@ function ensureLoggedIn(req, res, next) {
   res.status('401').json({ msg: 'Unauthorized You Shall Not Pass' })
 }
 
+// GET user by id
+router.get('/:id', async (req, res) => {
+  try {
+      const user = await db.User.findById(req.params.id);
+      if (!user) {
+          return res.status(404).send({ message: "User not found" });
+      }
+      res.status(200).json(user);
+  } catch (error) {
+      res.status(500).json({ message: "Error fetching user", error: error });
+  }
+});
+
 // DELETE user by id
 router.delete('/:id', async (req, res) => {
-  await User.findByIdAndDelete(req.params.id)
-  res.status(200).send({ message: "Successfully deleted user" })
-})
+  try {
+      const deletedUser = await db.User.findByIdAndDelete(req.params.id);
+      if (!deletedUser) {
+          return res.status(404).json({ message: "User not found" });
+      }
+      res.status(200).json({ message: "Successfully deleted user" });
+  } catch (error) {
+      console.error('Error deleting user:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // UPDATE user by id
 router.put('/:id', async (req, res) => {
@@ -103,7 +124,6 @@ router.put('/:id', async (req, res) => {
   const token = createToken(updatedUser)
   res.status(200).json({ token, user: updatedUser })
 })
-
 
 
 module.exports = router
