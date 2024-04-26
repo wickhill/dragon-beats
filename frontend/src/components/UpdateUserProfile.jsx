@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const UpdateUserProfile = ({ user }) => {
+    console.log(user, 777)
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -60,10 +61,10 @@ const UpdateUserProfile = ({ user }) => {
     };
 
     return (
-        <div className="update-user-form">
+        <div className="update-user-form pt-40 max-w-[600px] mx-auto">
             <h1>Update Your Profile</h1>
             <form onSubmit={handleUpdate}>
-                <label>
+                <label className="">
                     Username:
                     <input
                         type="text"
