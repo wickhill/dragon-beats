@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-import img1 from '../assets/bkgr.webp'
-import img2 from '../assets/logo.jpg'
-import img3 from '../assets/player.jpeg'
+//Reference: https://swiperjs.com/demos#autoplay
+import img1 from '../assets/dragonbeats.jpg'
+import img2 from '../assets/study.webp'
+import img3 from '../assets/bkgr.webp'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,28 +21,38 @@ const config = [
 ]
 export default function Home() {
     return (
-        <div className="max-w-[1400px] pt-[200px] mx-auto my-0">
-            <Swiper
-                spaceBetween={30}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper max-w-[750px]" 
-            >
-                {config.map(item => (
-                    <SwiperSlide key={item.id}>
-                        <div className="w-full max-w-[750px] h-[500px] flex justify-center">
-                            <img className="w-full" src={item.src} alt={item.title} /></div></SwiperSlide>
-                ))}
-            </Swiper>
+        <div className="bg-gray-900 min-h-screen text-white">
+        <div className="text-center pt-24 pb-8 px-4">
+          <h1 className="text-4xl font-bold mb-4">Dragon Beats App</h1>
+          <p className="text-lg max-w-2xl mx-auto">
+            dragonBeats is a music web app built using the Spotify Web API. It is designed to cater to
+            students who want background music that helps enhance their concentration while studying
+            with no distractions. The app features genres like Classical, Jazz, Ambience with curated
+            playlists containing various tracks that facilitate focused study sessions.
+          </p>
         </div>
+  
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper"
+        >
+          {config.map(item => (
+            <SwiperSlide key={item.id}>
+              <img className="w-full h-auto" src={item.src} alt={item.title} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     );
 }
 

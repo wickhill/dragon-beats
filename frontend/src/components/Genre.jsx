@@ -4,6 +4,8 @@ import Detail from './Detail';
 import Dropdown from './Dropdown';
 import Listbox from './Listbox';
 
+import vinyl from '../assets/vinyl.jpeg'
+
 const Genre = () => {
   const client = import.meta.env.VITE_APP_CLIENT_ID
   const secret = import.meta.env.VITE_APP_CLIENT_SECRET
@@ -96,6 +98,7 @@ const Genre = () => {
             artist: track.artists.map(artist => artist.name).join(', '),
             album: track.album.name,
             preview_url: track.preview_url,
+            spotify_url: track.external_urls.spotify,
             image: track.album.images[0]?.url
           };
         });
@@ -117,11 +120,15 @@ const Genre = () => {
   }
 
   return (
+    // Set a background image 
+    <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${vinyl})` }}>
     <div className="pt-[200px]">
       <div className="max-w-[1400px] my-0 mx-auto">
-        <form onSubmit={buttonClicked} className="space-y-4">
+      <div className="h-16 bg-transparent"> {/* space for the header */} </div>
+
+      <form onSubmit={buttonClicked} className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-md mx-auto mt-4 max-w-sm">
           {/* Listbox and Detail Components */}
-          <div className="grid grid-cols-2 gap-12 sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="grid grid-cols-1 gap-4 mt-4">
             <div className="w-full">
               <Dropdown label="Genre :" options={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
               <Dropdown label="Playlist :" options={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
@@ -139,6 +146,8 @@ const Genre = () => {
           </div>
         </form>
       </div>
+    </div>
+    <div className="h-16 bg-transparent"> {/* space for the footer */} </div>
     </div>
   );
 }

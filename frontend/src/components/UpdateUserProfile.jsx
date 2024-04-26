@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const UpdateUserProfile = ({ user }) => {
+    console.log(user)
     const [formData, setFormData] = useState({
         username: '',
         email: '',
