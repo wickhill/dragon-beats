@@ -87,6 +87,12 @@ function ensureLoggedIn(req, res, next) {
   res.status('401').json({ msg: 'Unauthorized You Shall Not Pass' })
 }
 
+// Logout Function
+app.post('/logout', (req, res) => {
+  // Clear token from client-side (e.g., remove from local storage or cookies)
+  res.status(200).json({ message: 'Logged out successfully' });
+});
+
 // DELETE user by id
 router.delete('/:id', async (req, res) => {
   await User.findByIdAndDelete(req.params.id)

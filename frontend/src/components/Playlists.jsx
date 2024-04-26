@@ -3,7 +3,7 @@ import { useStateProvider } from '../utility/StateProvider'
 import axios from 'axios'
 
 const Playlists = () => {
-    const [{ token, dispatch }] = useStateProvider()
+    const [{ token, playlists }, dispatch] = useStateProvider()
     useEffect(() => {
         const getPlaylistData = async () => {
             const response = await axios.get('https://api.spotify.com/v1/me/playlist', {
@@ -12,15 +12,27 @@ const Playlists = () => {
                     'Content-Type': 'application/json',
                 },
             })
+            const { items } = response.data
+            const playlists = items.map(({name, id}) => {
+                return { name, id }
+            })
+            dispatch({ type:reducerCases.SET_PLAYLISTS, playlists })
         }
-        const { items } = response.data
-        const playlists = items.map(({name, id}) => {
-            return { name, id }
-        })
-        dispatch({ type:reducerCases.SET_PLAYLISTS, playlists })
-    })
+        getPlaylistData()
+    }, [token, dispatch])
+
   return (
-    <div>Playlists</div>
+    <div>
+        <ul>
+            {
+                playlists.map((name, id) => {
+                    return (
+                        <li key={id}>{name}</li>
+                    )
+                })
+            }
+        </ul>
+    </div>
   )
 }
 

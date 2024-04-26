@@ -2,6 +2,9 @@ import React from 'react'
 import { IoLibrary } from 'react-icons/io5'
 import { MdHomeFilled, MdSearch } from 'react-icons/md'
 import { useSelector } from 'react-redux'
+import Playlists from './Playlists'
+import img2 from '../assets/logo.jpg'
+
 const Sidebar = () => {
     const user = useSelector(state=> state.session.user)
     console.log(user)
@@ -9,10 +12,7 @@ const Sidebar = () => {
     <>
     <div className="top_playlists">
         <div className="logo">
-            <img
-            src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png"
-            alt="spotify"
-            />
+            <img src={img2} alt="logo" />
         </div>
         <ul>
             <li>
@@ -32,7 +32,7 @@ const Sidebar = () => {
             </li>
         </ul>
     </div>
-    {/* <Playlists /> */}
+    <Playlists />
     </> 
   )
 }
