@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, Route, Routes } from "react-router-dom"
 import Signin from "./components/Signin"
 import Signup from './components/Signup'
+import UpdateUserProfile from './components/UpdateUserProfile'
 import Home from './pages/Home'
 import Genre from './components/Genre'
 import Navbar from './components/Navbar'
@@ -20,15 +21,16 @@ const logout = () => {
          }
         <Route path="/signin" element={<Signin onSignin={ setUser }/>} />
         <Route path="/signup" element={<Signup onSignup={ setUser }/>} />
-        {user &&  <> 
-       <Route path="/" element={<Genre />} />
-        </>}
+        {user && (
+            <>
+            <Route path="/" element={<Genre />} />
+            <Route path="/updateProfile" element={<UpdateUserProfile user={user} />} />
+            </>
+         )}
         </Routes>
         </>
     )
 }
-
-
 
 
 export default App
