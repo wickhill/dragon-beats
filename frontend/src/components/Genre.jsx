@@ -122,19 +122,18 @@ const Genre = () => {
   return (
     // Set a background image 
     <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${vinyl})` }}>
-    <div className="pt-[200px]">
+    <div className="pt-[10px]  sm:pt-[100px]">
       <div className="max-w-[1400px] my-0 mx-auto">
       <div className="h-16 bg-transparent"> {/* space for the header */} </div>
-
-      <form onSubmit={buttonClicked} className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-md mx-auto mt-4 max-w-sm">
+      <form onSubmit={buttonClicked} className="space-y-4 bg-gray-100 p-4 rounded-lg shadow-md mx-auto mt-4 max-w-sm sm:max-w-[600px]">
           {/* Listbox and Detail Components */}
-          <div className="grid grid-cols-1 gap-4 mt-4">
+          <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
             <div className="w-full">
               <Dropdown label="Genre :" options={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
               <Dropdown label="Playlist :" options={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
               {/* Search Button */}
               <div className="flex w-full">
-                <button type='submit' className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 w-full transition duration-150 ease-in-out">
+                <button type='submit' className="bg-blue-500 rounded-xl hover:bg-green-600 text-white font-bold py-2 px-4 w-full transition duration-150 ease-in-out">
                   Search
                 </button>
               </div>

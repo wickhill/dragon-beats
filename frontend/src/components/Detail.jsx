@@ -35,7 +35,7 @@ const Detail = ({ name, album, artist, preview_url, image, spotify_url}) => {
         href={spotify_url}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 text-blue-600 hover:text-blue-800 visited:text-purple-600"
+        className="mt-4 text-blue-600 font-bold hover:text-blue-800 visited:text-purple-600"
       >
         Listen on Spotify
       </a>

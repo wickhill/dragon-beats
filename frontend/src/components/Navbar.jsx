@@ -24,9 +24,9 @@ const Navbar = ({ user }) => {
         <div></div>
 
         {/* Centered Logo and App Name */}
-        <Link to="/" className="flex justify-center items-center mx-auto">
+        <Link to="/" className="flex justify-center items-center mx-auto sm:pl-40">
           <img src={logo} className="h-8 mr-2" alt="Logo" />
-          <span className="text-xl font-semibold text-gray-900">Dragon Beats App</span>
+          <span className="text-xl font-semibold text-gray-900">Dragon Beats</span>
         </Link>
 
         {/* Right-aligned profile button or sign-in/sign-up links */}
