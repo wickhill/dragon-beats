@@ -29,7 +29,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/wickhill/dragon-beats">
+  <a href="https://dragon-beats-app.netlify.app">
     <img src="dragon-beats-icon.png" alt="Icon" width="80" height="80">
   </a>
 
@@ -41,7 +41,7 @@
     <a href="https://github.com/wickhill/dragon-beats"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/wickhill/dragon-beats">View Demo</a>
+    <a href="https://dragon-beats-app.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/wickhill/dragon-beats/issues">Report Bug</a>
     ·
@@ -91,7 +91,7 @@
 ## About The Project
 
 <div align="center">
-  <a href="https://github.com/wickhill/dragon-beats">
+  <a href="https://dragon-beats-app.netlify.app">
     <img src="https://i.imgur.com/fiYBLdP.jpg" alt="Dragon Beats Logo" width="800" height="800">
   </a>
 </div>
