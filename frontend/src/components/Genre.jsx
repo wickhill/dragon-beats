@@ -3,11 +3,7 @@ import axios from 'axios';
 import Detail from './Detail';
 import Dropdown from './Dropdown';
 import Listbox from './Listbox';
-<<<<<<< HEAD
 
-
-=======
->>>>>>> d057b58e1adee7da6288025453099c87c71ecbc0
 import vinyl from '../assets/vinyl.jpeg'
 
 // Main functional component for Genre
@@ -149,18 +145,13 @@ const Genre = () => {
                 <Listbox items={tracks.listOfTracksFromAPI} clicked={listboxClicked} />
               </div>
               <div className="max-w-[600px] w-full">
-                {trackDetail && <Detail {...trackDetail} />}
+              {trackDetail && <Detail {...trackDetail} />}
               </div>
             </div>
           </form>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-    <div className="h-16 bg-transparent"></div>
-=======
       <div className="h-16 bg-transparent"> {/* space for the footer */} </div>
->>>>>>> d057b58e1adee7da6288025453099c87c71ecbc0
     </div>
   );
 }
