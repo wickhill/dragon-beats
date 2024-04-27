@@ -6,7 +6,7 @@ import UpdateUserProfile from './components/UpdateUserProfile'
 import Home from './pages/Home'
 import Genre from './components/Genre'
 import Navbar from './components/Navbar'
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer';
 
 function App() {
 const [user, setUser] = useState(null)
@@ -29,7 +29,7 @@ const logout = () => {
             </>
          )}
         </Routes>
-        <Footer user={user} onLogout={setUser}/>
+        <Footer/>
         </>
     )
 }
