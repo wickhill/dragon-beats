@@ -78,7 +78,6 @@
         <li><a href="#spotify-api">Spotify's API</a></li>
         <li><a href="#hurdles">Hurdles</a></li>
         </ul>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -198,8 +197,6 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 
 ## Project Origins
 
-* Origins: Tuning into Focus:
-
 DragonBeats originated from our motivation to create a useful application for students who are seeking music to enhance extended study sessions. Built using Spotify's API, DragonBeats integrates our knowledge of third-party APIs, authorization flows, and user accessibility.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -210,14 +207,15 @@ DragonBeats originated from our motivation to create a useful application for st
 
 ## User Stories
 
-* User Stories:
-
 DragonBeats features genres like Classical, Jazz, and Nature Sounds, with curated playlists designed to support focused study environments.
 
-    - [x] Account Management: As a user, I want to be able to create an account and update my profile, so that I can personalize my experience and manage my information securely.
-    - [x] Genre Browsing: As a student, I want to easily browse through main study-centric genres like ambient, chill, classical, and jazz, so that I can find music that helps me concentrate and enhances my study sessions.
-    - [x] Music Discovery: As a user, I want to access detailed information about Spotify artists, songs, and albums, so that I can discover new music and deepen my understanding of what I’m listening to.
-    - [x] Sub-genre Exploration: As a user, I want to explore sub-genres of my favorite study-centric music categories, so that I can diversify my musical selections and enhance my focus during study.
+**Account Management**: As a user, I want to be able to create an account and update my profile, so that I can personalize my experience and manage my information securely.
+
+**Genre Browsing**: As a student, I want to easily browse through main study-centric genres like ambient, chill, classical, and jazz, so that I can find music that helps me concentrate and enhances my study sessions.
+
+**Music Discovery**: As a user, I want to access detailed information about Spotify artists, songs, and albums, so that I can discover new music and deepen my understanding of what I’m listening to.
+
+**Sub-genre Exploration**: As a user, I want to explore sub-genres of my favorite study-centric music categories, so that I can diversify my musical selections and enhance my focus during study.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -226,8 +224,6 @@ DragonBeats features genres like Classical, Jazz, and Nature Sounds, with curate
 <!-- SPOTIFY API -->
 
 ## Spotify API
-
-* Spotify for Developers:
 
 Spotify's API uses OAuth 2.0 for authentication. Developers implement the API by obtaining an access token, and then use the token to make authorized requests to various endpoints for data retrieval, data modification (saved tracks, playlists), or even playback.
 
@@ -241,7 +237,7 @@ Spotify's API implements an additional security measure to protect user data and
 
 ## Hurdles
 
-* From Authorization Code Flow to Client Credentials Flow:
+_From Authorization Code Flow to Client Credentials Flow_:
 
 Spotify's API offers comprehensive documentation that supports a variety of integrations, from accessing saved songs to managing playlists. Implementing its full capabilities, such as user-specific data access, typically requires authentication steps including user login via the robust "Authorization Code Flow". This flow, while offering extensive access to user resources and requiring token refresh mechanisms, was initially considered for our project.
 
@@ -254,7 +250,7 @@ The design of our app is flexible enough that, with our growing understanding, w
 
 
 <!-- CONTRIBUTING -->
-## Contributing
+<!-- ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create! Any contributions you make are **greatly appreciated**.
 
@@ -267,7 +263,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
@@ -283,9 +279,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Karina Nova - kbmelody8 [at] gmail
-David Lesesne - davidplesesne [at] gmail
-Wick - [@wickstarter](https://twitter.com/wickstarter) - wickhill [at] gmail
+* []() Karina Nova - kbmelody8 [at] gmail
+* []() David Lesesne - davidplesesne [at] gmail
+* []() Wick - [@wickstarter](https://twitter.com/wickstarter) - wickhill [at] gmail
 
 Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wickhill/dragon-beats)
 
