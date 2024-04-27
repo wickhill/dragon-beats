@@ -34,7 +34,7 @@ const UpdateUserProfile = ({ user, setUser }) => {
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:3000/user/${user._id}`, formData, {
+      const response = await axios.put(`${import.meta.env_VITE_APP_CLIENT_BACKEND_URL}/user/${user._id}`, formData, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       alert("Profile Updated Successfully.");
@@ -48,7 +48,7 @@ const UpdateUserProfile = ({ user, setUser }) => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete your profile?")) {
       try {
-        await axios.delete(`http://localhost:3000/user/${user._id}`, {
+        await axios.delete(`${import.meta.env_VITE_APP_CLIENT_BACKEND_URL}/user/${user._id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         alert(
