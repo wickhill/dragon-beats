@@ -3,6 +3,7 @@ import axios from 'axios';
 import Detail from './Detail';
 import Dropdown from './Dropdown';
 import Listbox from './Listbox';
+
 import vinyl from '../assets/vinyl.jpeg'
 
 // Main functional component for Genre
@@ -144,7 +145,7 @@ const Genre = () => {
                 <Listbox items={tracks.listOfTracksFromAPI} clicked={listboxClicked} />
               </div>
               <div className="max-w-[600px] w-full">
-                {trackDetail && <Detail {...trackDetail} />}
+              {trackDetail && <Detail {...trackDetail} />}
               </div>
             </div>
           </form>
