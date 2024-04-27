@@ -13,7 +13,7 @@ const Signup = ({ onSignup }) => {
 
   const handleSignup = async (e) => {
     e.preventDefault();;
-    const response = await fetch(`${import.meta.env.VITE_APP_CLIENT_BACKEND_URL}/signup`, {
+    const response = await fetch(`${import.meta.env.VITE_APP_CLIENT_BACKEND_URL}/user/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
