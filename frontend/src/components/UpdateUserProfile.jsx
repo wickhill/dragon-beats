@@ -4,7 +4,6 @@ import axios from "axios";
 import img1 from "../assets/vinyl.jpeg";
 
 const UpdateUserProfile = ({ user, setUser }) => {
-  console.log(user, 777);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
