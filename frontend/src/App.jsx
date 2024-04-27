@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react'
+import { Link, Route, Routes } from "react-router-dom"
+import Signin from "./components/Signin"
+import Signup from './components/Signup'
+import UpdateUserProfile from './components/UpdateUserProfile'
+import Home from './pages/Home'
+import Genre from './components/Genre'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+const [user, setUser] = useState(null)
+const logout = () => {
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
 }
+    return (
+        <>
+    <Navbar user={user} onLogout={setUser}/>
+        <Routes>
+         {!user &&
+            <Route path="/" element={<Home />} />
+         }
+        <Route path="/signin" element={<Signin onSignin={ setUser }/>} />
+        <Route path="/signup" element={<Signup onSignup={ setUser }/>} />
+        {user && (
+            <>
+            <Route path="/" element={<Genre />} />
+            <Route path="/updateProfile" element={<UpdateUserProfile user={user} setUser={setUser} />} />
+            </>
+         )}
+        </Routes>
+        <Footer/>
+        </>
+    )
+}
+
 
 export default App
