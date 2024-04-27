@@ -23,11 +23,11 @@ export default function Home() {
     return (
         <div className="bg-gray-900 min-h-screen text-white">
         <div className="text-center pt-24 pb-8 px-4">
-          <h1 className="text-4xl font-bold mb-4">Dragon Beats App</h1>
+          <h1 className="text-4xl font-bold mb-4">DragonBeats App</h1>
           <p className="text-lg max-w-2xl mx-auto">
-            dragonBeats is a music web app built using the Spotify Web API. It is designed to cater to
+            DragonBeats is a music web app built using Spotify's Web API. It is designed to cater to
             students who want background music that helps enhance their concentration while studying
-            with no distractions. The app features genres like Classical, Jazz, Ambience with curated
+            without distractions. The app features genres like Classical, Jazz, and Ambient and has curated
             playlists containing various tracks that facilitate focused study sessions.
           </p>
         </div>
