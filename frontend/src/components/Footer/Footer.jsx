@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemsContainer from './ItemsContainer'
 
 const Footer = () => {
   return (
@@ -8,6 +9,7 @@ const Footer = () => {
             <span className="text-teal-400">Free</span> Preview Relaxing Playlists
         </h1>
       </div>
+      <ItemsContainer />
     </footer>
   )
 }
