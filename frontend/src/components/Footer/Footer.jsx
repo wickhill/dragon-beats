@@ -1,15 +1,56 @@
 import React from 'react'
-import ItemsContainer from './ItemsContainer'
+// import ItemsContainer from './ItemsContainer'
+
+const sections =[
+  {
+    title:'Genres',
+    items:['Ambient', 'Study', 'Jazz', 'Classical']
+  },
+  {
+    title:'Helpful Links',
+    items:[
+    'Gryffindor Pomodoro Study Session 25/5',
+    'Ravenclaw Pomodoro Study Session 25/5', 
+    'Hufflepuff Pomodoro Study Session 25/5', 
+    'Slytherin Pomodoro Study Session 25/5']
+  },
+  {
+    title:'Meet The Team',
+    items:['Karina Nova', 'Wick Hill', 'David Lesesne', 'Digital Dragons']
+  },
+]
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-7">
-        <h1 className="lg:text-4x1 text-3x1 md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
-            <span className="text-teal-400">Free</span> Preview Relaxing Playlists
-        </h1>
+    <footer className="w-full mt-24 bg-slate-900 text-gray-300 py-y px-2">
+      <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-4 border-b-2 border-gray-600 py-8">
+          {
+            sections.map((section,index) => (
+              <div key={index}>
+                <h6 className="font-bold uppercase pt-2">
+                  {section.title}
+                </h6>
+                <ul>
+                  {section.items.map((item,i) => (
+                    <li key={i}
+                        className="py-1 text-gray-500 hover:text-teal-700 cursor-pointer">
+                          {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+
+          <div className="col-span-2 pt-8 md:pt-2">
+            <p className="font-bold uppercase">
+              About Our Team
+            </p>
+            <p className="font-bold">
+              We are the Digital Dragons. Checkout our awesome app and stay tuned for future endeavors!
+            </p>
+          </div>
       </div>
-      <ItemsContainer />
     </footer>
   )
 }
