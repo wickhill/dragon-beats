@@ -5,7 +5,6 @@ import { CgProfile } from 'react-icons/cg'
 import logo from '../assets/logo.jpg'
 import Logout from './Logout'
 
-//Reference: https://flowbite.com/docs/components/navbar/
 const Navbar = ({ user, onLogout}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -16,17 +15,13 @@ const Navbar = ({ user, onLogout}) => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-gray-400 shadow z-50">
       <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
-      
-        {/* Placeholder div for centering logo and app name */}
-        <div></div>
-
         {/* Centered Logo and App Name */}
         <Link to="/" className="flex justify-center items-center mx-auto sm:pl-40">
           <img src={logo} className="h-8 mr-2" alt="Logo" />
-          <span className="text-xl font-semibold text-gray-900">Dragon Beats</span>
+          <span className="text-xl font-semibold text-gray-900">DragonBeats</span>
         </Link>
 
-        {/* Right-aligned profile button or sign-in/sign-up links */}
+        {/* Right-aligned sign-in/sign-up links */}
         <div className="flex items-center space-x-3">
           {user ? (
             <div className="relative">
@@ -37,9 +32,6 @@ const Navbar = ({ user, onLogout}) => {
                 <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
                     <Link to="/updateProfile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</Link>
-                    {/* <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                      Logout
-                    </button> */}
                     <Logout onLogout={onLogout}  />
                   </div>
                 </div>
@@ -47,10 +39,10 @@ const Navbar = ({ user, onLogout}) => {
             </div>
           ) : (
             <>
-              <Link to="/signup" className="text-gray-900 bg-teal-400 hover:bg-teal-700 px-4 py-2 rounded">
+              <Link to="/signup" className="text-gray-900 font-bold bg-teal-400 hover:bg-teal-700 px-4 py-2 rounded">
                 Sign Up
               </Link>
-              <Link to="/signin" className="text-gray-900 bg-teal-400 hover:bg-teal-700 px-4 py-2 rounded">
+              <Link to="/signin" className="text-gray-900 font-bold bg-teal-400 hover:bg-teal-700 px-4 py-2 rounded">
                 Sign In
               </Link>
             </>
