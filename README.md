@@ -285,8 +285,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-* []() Karina Nova: kbmelody8 [at] gmail
-* []() David Lesesne: davidplesesne [at] gmail
+* []() Karina Nova: [kbmelody8](https://github.com/kbmelody8)
+* []() David Lesesne: [dlesesne23](https://github.com/dlesesne23)
 * []() Wick Hill: [@wickstarter](https://twitter.com/wickstarter)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
