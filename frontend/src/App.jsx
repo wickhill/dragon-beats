@@ -29,7 +29,7 @@ const logout = () => {
             </>
          )}
         </Routes>
-        <Footer />
+        <Footer user={user} onLogout={setUser}/>
         </>
     )
 }
