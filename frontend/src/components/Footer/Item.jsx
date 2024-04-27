@@ -5,13 +5,12 @@ const Item = ({Links,title}) => {
     <ul> 
       <h1 className="mb font-semibold">{title}</h1>
       {
-        Links.map((link) => {
-          return (
+        Links.map((link) => (
             <li key={link.name}>
-              <a className="text-gray-400 hover:text-teal-700" href={link.link}></a>
+              <a className="text-gray-400 hover:text-teal-700 duration-300 text-sm cursor-pointer" href={link.link}></a>
             </li>
           )
-        })
+        )
       }  
     </ul>
   )
