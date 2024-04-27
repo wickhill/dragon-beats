@@ -130,12 +130,10 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Get started with Dragon Beats!
-To get a local copy up and running follow these simple example steps:
+To get started with Dragon Beats, just follow these steps:
 
 ### Prerequisites
 
-Here's the software you'll need to install, the API's you'll need to request, and how to use 'em all so you can start listening!
 * npm
   ```sh
   npm install npm@latest -g
@@ -144,10 +142,12 @@ Here's the software you'll need to install, the API's you'll need to request, an
 ### Installation
 
 1. Get a free Spotify API Key at [https://developer.spotify.com/documentation/web-api](https://developer.spotify.com/documentation/web-api)
+
 2. Clone the repo
    ```sh
    git clone https://github.com/wickhill/dragon-beats.git
    ```
+
 3. Install NPM packages
    ```sh
    npm install
@@ -155,7 +155,15 @@ Here's the software you'll need to install, the API's you'll need to request, an
    npm i axios
    npm i mongoose
    ```
-4. Enter your Spotify Developer Client ID and Client secret into an `.env` file you create in your frontend root directory. You can find these Client parameters by going to: Spotify Developer's Dashboard > "Your App" > Settings > Client ID + click on 'View client secret'. Below, this is what your frontend `.env` should look like:
+
+4. Enter your Spotify Developer Client ID and Client secret into an `.env` file you create in your frontend root directory. You can find these Client parameters by going to:
+* []() Spotify Developer's Dashboard --->
+* []() Select your app --->
+* []() Settings --->
+* []() Client ID + click on 'View client secret'
+
+Then, this is what the code in your frontend `.env` should look like:
+
    ```js
    VITE_APP_CLIENT_ID='ENTER YOUR CLIENT_ID';
    VITE_APP_CLIENT_SECRET='ENTER YOUR CLIENT_SECRET';
@@ -168,7 +176,7 @@ Here's the software you'll need to install, the API's you'll need to request, an
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<span style="font-weight: bold">Find Your Focus with Dragon Beats:</span>
+**Find Your Focus with Dragon Beats.**
 
 Dragon Beats harmonizes your study and coding sessions with curated playlists that sharpen focus without distraction. It's where music transforms from mere background noise to a productivity-boosting soundscape.
 
@@ -197,7 +205,7 @@ _For more examples, please refer to the [Documentation](https://developer.spotif
 
 ## Project Origins
 
-DragonBeats originated from our motivation to create a useful application for students who are seeking music to enhance extended study sessions. Built using Spotify's API, DragonBeats integrates our knowledge of third-party APIs, authorization flows, and user accessibility.
+DragonBeats originated from our motivation to create a useful application for students who are seeking music to enhance extended study sessions. Built using Spotify's API, DragonBeats integrates our knowledge of third-party APIs, authorization flows, and user accessibility. DragonBeats features genres like Classical, Jazz, and Nature Sounds, with curated playlists designed to support focused study environments.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -206,8 +214,6 @@ DragonBeats originated from our motivation to create a useful application for st
 <!-- A WORD ON AUTHENTICATION -->
 
 ## User Stories
-
-DragonBeats features genres like Classical, Jazz, and Nature Sounds, with curated playlists designed to support focused study environments.
 
 **Account Management**: As a user, I want to be able to create an account and update my profile, so that I can personalize my experience and manage my information securely.
 
@@ -237,7 +243,7 @@ Spotify's API implements an additional security measure to protect user data and
 
 ## Hurdles
 
-_From Authorization Code Flow to Client Credentials Flow_:
+**From Authorization Code Flow to Client Credentials Flow.**
 
 Spotify's API offers comprehensive documentation that supports a variety of integrations, from accessing saved songs to managing playlists. Implementing its full capabilities, such as user-specific data access, typically requires authentication steps including user login via the robust "Authorization Code Flow". This flow, while offering extensive access to user resources and requiring token refresh mechanisms, was initially considered for our project.
 
@@ -279,11 +285,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-* []() Karina Nova - kbmelody8 [at] gmail
-* []() David Lesesne - davidplesesne [at] gmail
-* []() Wick - [@wickstarter](https://twitter.com/wickstarter) - wickhill [at] gmail
-
-Project Link: [https://github.com/wickhill/dragon-beats](https://github.com/wickhill/dragon-beats)
+* []() Karina Nova: kbmelody8 [at] gmail
+* []() David Lesesne: davidplesesne [at] gmail
+* []() Wick Hill: [@wickstarter](https://twitter.com/wickstarter)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
