@@ -4,6 +4,7 @@ import Detail from './Detail';
 import Dropdown from './Dropdown';
 import Listbox from './Listbox';
 
+
 import vinyl from '../assets/vinyl.jpeg'
 
 const Genre = () => {
@@ -146,7 +147,7 @@ const Genre = () => {
         </form>
       </div>
     </div>
-    <div className="h-16 bg-transparent"> {/* space for the footer */} </div>
+    <div className="h-16 bg-transparent"></div>
     </div>
   );
 }
