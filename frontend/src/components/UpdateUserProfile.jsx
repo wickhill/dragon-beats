@@ -80,7 +80,7 @@ const UpdateUserProfile = ({ user, setUser }) => {
           onSubmit={handleUpdate}
         >
           <h1 className="text-4xl font-bold text-center py-6">
-            My Profile
+            {user.username}'s Profile
           </h1>
 
           <div className="flex flex-col px-1 py-2 mb-1">
