@@ -181,10 +181,6 @@ Then, this is what the code in your frontend `.env` should look like:
 
 Dragon Beats harmonizes your study and coding sessions with curated playlists that sharpen focus without distraction. It's where music transforms from mere background noise to a productivity-boosting soundscape.
 
-(Later, have code examples and demos in this space. And perhaps a few links to addtl resources.)
-
-_For more examples, please refer to the [Documentation](https://developer.spotify.com/documentation/web-api)_
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -235,6 +231,8 @@ DragonBeats originated from our motivation to create a useful application for st
 Spotify's API uses OAuth 2.0 for authentication. Developers implement the API by obtaining an access token, and then use the token to make authorized requests to various endpoints for data retrieval, data modification (saved tracks, playlists), or even playback.
 
 Spotify's API implements an additional security measure to protect user data and limit unauthorized access: access tokens are valid for only one hour. This is common industry practice, reducing the potential for the misuse of tokens.
+
+_For additional technical information, please refer to Spotify's API [Documentation](https://developer.spotify.com/documentation/web-api)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
