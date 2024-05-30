@@ -230,7 +230,7 @@ DragonBeats originated from our motivation to create a useful application for st
 
 Spotify's API uses OAuth 2.0 for authentication. Developers implement the API by obtaining an access token, and then use the token to make authorized requests to various endpoints for data retrieval, data modification (saved tracks, playlists), or even playback.
 
-Spotify's API implements an additional security measure to protect user data and limit unauthorized access: access tokens are valid for only one hour. This is common industry practice, reducing the potential for the misuse of tokens.
+Spotify's API implements an additional security measure to protect user data and li unauthorized access: access tokens are valid for only one hour. This is common industry practice, reducing the potential for the misuse of tokens.
 
 _For additional technical information, please refer to Spotify's API [Documentation](https://developer.spotify.com/documentation/web-api)_
 
@@ -246,7 +246,7 @@ _For additional technical information, please refer to Spotify's API [Documentat
 
 Spotify's API offers comprehensive documentation that supports a variety of integrations, from accessing saved songs to managing playlists. Implementing its full capabilities, such as user-specific data access, typically requires authentication steps including user login via the robust "Authorization Code Flow". This flow, while offering extensive access to user resources and requiring token refresh mechanisms, was initially considered for our project.
 
-However, given its complexity and our project's timeframe, we opted for the more accessible "Client Credentials Flow". This approach, which only requires a secret key and is executed server-side, provides access to a more limited set of features but is significantly easier to implement, fitting our need for simplicity and quick integration.
+However, given its complexity and our project's timeframe, we opted for the more accessible "Client Credentials Flow". This approach, which only requires a secret key and is executed server-side, provides access to a more lied set of features but is significantly easier to implement, fitting our need for simplicity and quick integration.
 
 The design of our app is flexible enough that, with our growing understanding, we feel confident in our ability to implement the full "Authorization Code Flow" and its extensive features in future iterations.
 
@@ -267,7 +267,7 @@ The design of our app is flexible enough that, with our growing understanding, w
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the  License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -308,9 +308,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [issues-shield]: https://img.shields.io/github/issues/wickhill/dragon-beats.svg?style=for-the-badge
 [issues-url]: https://github.com/wickhill/dragon-beats/issues
-
-[license-shield]: https://img.shields.io/github/license/wickhill/dragon-beats.svg?style=for-the-badge
-[license-url]: https://github.com/wickhill/dragon-beats/blob/main/LICENSE
 
 [license-shield]: https://img.shields.io/badge/License-MIT-yellow.svg
 [license-url]: https://opensource.org/licenses/MIT
